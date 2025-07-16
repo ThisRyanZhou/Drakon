@@ -11,13 +11,13 @@ define player = Character("[player_name]")
 
 init python:
         
-    testInput = "???:Mmmph#You:You roll over, trying to enjoy the sun’s warmth for a little longer.#You:The grass is cool, and gives the heat a comforting feeling.#You:…#You:Huh?#You:Grass? Sun?#???: Wha-?#"
-    inputList = testInput.split("#")[:-1]
+    #testInput = "???:Mmmph#You:You roll over, trying to enjoy the sun’s warmth for a little longer.#You:The grass is cool, and gives the heat a comforting feeling.#You:…#You:Huh?#You:Grass? Sun?#???: Wha-?#"
+    #inputList = testInput.split("#")[:-1]
     #print(inputList)
     sleep = 10
     
     def readLine(textFileName):
-        filepath = renpy.loader.transfn(textFileName)
+        filepath = renpy.loader.transfn("statements/"+textFileName)
         #filepath = textFileName
         with open(filepath, 'r') as file:
             lines = file.readlines()
@@ -33,6 +33,10 @@ init python:
             renpy.say(unknown, oneLine[1])
         if user == "You":
             renpy.say(You, oneLine[1])
+        if user == "player":
+            renpy.say(player, oneLine[1])
+        if user == "Tamriel":
+            renpy.say(Tamriel, oneLine[1])
         #renpy.say(e, oneLine[1])
         #return oneLine[0:2]
         return
@@ -64,14 +68,15 @@ label start:
     # These display lines of dialogue.
 
     python:
-        for i in range(len(inputList)):
-            readLines(inputList[i])
+        readLine("prologue1.txt")
     
     $ player_name = renpy.input("What is your name?", length=32)
     $ player_name = player_name.strip()
     if not player_name:
         $ player_name = "1o8ryan"
-    player "hello"
+
+    python:
+        readLine("prologue2.txt")
     # This ends the game.
 
     return

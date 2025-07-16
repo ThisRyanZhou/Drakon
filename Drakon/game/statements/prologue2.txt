@@ -1,0 +1,14 @@
+???: Welcome, child.
+player:Its either [player_name] or Priv.
+???: Then your Priv.
+player:Holy shit-!
+???: This is Drakon, your new home.
+???: A perfect place to start a new life or turn over a new leaf.
+player: Who are you?
+???: I am Tamriel, The Fade of Rebirth
+player: Fade?
+player: Like, a God?
+Tamriel: The Fades will be watching your journey, but be warned. We are unable to intervene directly.
+Tamriel: Bringing you here was a great upset to the balance of the world already.
+player: Choice
+Tamriel: I wish you the best of luck.
