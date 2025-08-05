@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 20: expected an indented block
-    filepath = renpy.loader.transfn(textFileName)
-     ^
+File "game/script.rpy", line 23: expected an indented block
+        lines = file.readlines()
+         ^
 
 Ren'Py Version: Ren'Py 8.3.7.25031702
-Tue Jul 15 15:28:13 2025
+Tue Aug  5 15:51:04 2025

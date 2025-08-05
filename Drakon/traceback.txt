@@ -1,34 +1,53 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 70, in script
+  File "game/script.rpy", line 110, in script
     python:
-  File "game/script.rpy", line 71, in <module>
+  File "game/script.rpy", line 111, in <module>
     readLine("prologue1.txt")
-  File "game/script.rpy", line 25, in readLine
+  File "game/script.rpy", line 52, in readLine
     print(readLines(line.strip()))
-  File "game/script.rpy", line 30, in readLines
-    changeStats(oneLine[2])
-IndexError: list index out of range
+  File "game/script.rpy", line 77, in readLines
+    renpy.say(player, oneLine[1])
+NameError: name 'player_name' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 70, in script
+  File "game/script.rpy", line 110, in script
     python:
   File "C:\Users\1o8zh\Downloads\renpy-8.3.7-sdk\renpy\ast.py", line 834, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "C:\Users\1o8zh\Downloads\renpy-8.3.7-sdk\renpy\python.py", line 1187, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/script.rpy", line 71, in <module>
+  File "game/script.rpy", line 111, in <module>
     readLine("prologue1.txt")
-  File "game/script.rpy", line 25, in readLine
+  File "game/script.rpy", line 52, in readLine
     print(readLines(line.strip()))
-  File "game/script.rpy", line 30, in readLines
-    changeStats(oneLine[2])
-IndexError: list index out of range
+  File "game/script.rpy", line 77, in readLines
+    renpy.say(player, oneLine[1])
+  File "C:\Users\1o8zh\Downloads\renpy-8.3.7-sdk\renpy\exports\sayexports.py", line 132, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\1o8zh\Downloads\renpy-8.3.7-sdk\renpy\character.py", line 1454, in __call__
+    who = self.prefix_suffix("who", self.who_prefix, who, self.who_suffix)
+  File "C:\Users\1o8zh\Downloads\renpy-8.3.7-sdk\renpy\character.py", line 1369, in prefix_suffix
+    return (sub(prefix) + sub(body) + sub(suffix))
+  File "C:\Users\1o8zh\Downloads\renpy-8.3.7-sdk\renpy\character.py", line 1349, in sub
+    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
+  File "C:\Users\1o8zh\Downloads\renpy-8.3.7-sdk\renpy\substitutions.py", line 373, in substitute
+    s = interpolate(s, variables) # type: ignore
+  File "C:\Users\1o8zh\Downloads\renpy-8.3.7-sdk\renpy\substitutions.py", line 86, in interpolate
+    raise e
+  File "C:\Users\1o8zh\Downloads\renpy-8.3.7-sdk\renpy\substitutions.py", line 78, in interpolate
+    value = renpy.python.py_eval(code, {}, scope)
+  File "C:\Users\1o8zh\Downloads\renpy-8.3.7-sdk\renpy\python.py", line 1218, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\1o8zh\Downloads\renpy-8.3.7-sdk\renpy\python.py", line 1211, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "<none>", line 1, in <module>
+NameError: name 'player_name' is not defined
 
 Windows-10-10.0.26100 AMD64
 Ren'Py 8.3.7.25031702
 Funny Project 1.0
-Wed Jul 16 17:26:40 2025
+Tue Aug  5 16:06:40 2025

@@ -7,7 +7,7 @@ define unknown = Character("???")
 define You = Character("...")
 define Tamriel = Character("Tamriel")
 default sleep = 10
-define player = Character("[player_name]")
+define player = Character("Priv")
 
 init python:
         
@@ -21,9 +21,50 @@ init python:
         #filepath = textFileName
         with open(filepath, 'r') as file:
             lines = file.readlines()
+            questioned = False
+            numChoice = 0
+            choices = []
+            message = ""
+            saveChoice = ""
             for line in lines:
-                print(readLines(line.strip()))
-            
+                #print(line)
+                if questioned:
+                    if numChoice == 1:
+                        choices.append(line)
+                        saveChoice = create_choice_menu(choices, message)
+                        questioned = False
+                        choices.clear()
+                        message = ""
+                    else:
+                        numChoice -= 1
+                        choices.append(line)
+                elif line[0] == "~":
+                    questioned = True
+                    numChoice = int(line[-2])
+                    message = line[1:-2]
+                    if message == "empty":
+                        message = ""
+                elif line[0] == "-":
+                    line = line[1:]
+                    line = line.split("-")
+                    if line[0].strip() == saveChoice.strip():
+                        print(readLines(line[-1].strip()))
+                else:
+                    print(readLines(line.strip()))
+    
+    def create_choice_menu(choices, message):
+        #print(choices)
+        #print(message)
+        menu_items = []
+        for choice in choices:
+            menu_items.append((choice, choice))
+        
+        # Display the message
+        renpy.say(None, message) 
+        
+        chosen_option = renpy.display_menu(menu_items)
+        return chosen_option
+
     def readLines(oneLine):
         oneLine = oneLine.split(":")
         if len(oneLine) != 2:
@@ -69,14 +110,6 @@ label start:
 
     python:
         readLine("prologue1.txt")
-    
-    $ player_name = renpy.input("What is your name?", length=32)
-    $ player_name = player_name.strip()
-    if not player_name:
-        $ player_name = "1o8ryan"
-
-    python:
-        readLine("prologue2.txt")
     # This ends the game.
 
     return

@@ -5,3 +5,25 @@ You:…
 You:Huh?
 You:Grass? Sun?
 ???: Wha-?
+~empty1
+Where am I?
+-Where am I?-You:You open my eyes again, carefully, to harsh sunlight and a field of purple lilies.
+~empty1
+What am I?
+-What am I?-You:Instinctively you think human. But you can feel the wind on large protrusions on your back. Upon further inspection, you have the wings of a butterfly.
+~empty1
+Who am I?
+-Who am I?-You:You can feel it. Your name...it’s Priv.
+???: Welcome, child.
+player:...
+player:Holy shit-!
+???: This is Drakon, your new home.
+???: A perfect place to start a new life or turn over a new leaf.
+player: Who are you?
+???: I am Tamriel, The Fade of Rebirth
+player: Fade?
+player: Like, a God?
+Tamriel: The Fades will be watching your journey, but be warned. We are unable to intervene directly.
+Tamriel: Bringing you here was a great upset to the balance of the world already.
+player: Choice
+Tamriel: I wish you the best of luck.
